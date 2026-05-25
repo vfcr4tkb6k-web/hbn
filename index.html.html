@@ -1,0 +1,1123 @@
+<!doctype html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBN，让肌肤看得见</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 进度条 -->
+    <div class="progress-bar" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- 版面1：导航页面 -->
+    <section id="hero" class="section">
+        <nav class="nav-bar">
+            <div class="container">
+                <div class="nav-logo">HBN<span>.</span></div>
+                <ul class="nav-links">
+                    <li><a href="#products">首页系列</a></li>
+                    <li><a href="#" id="nav-quiz">真实测评</a></li>  
+                     <li><a href="#" id="nav-product-show">产品展示</a></li> 
+                    <li><a href="#promotion">会员专区</a></li>   
+                </ul>
+            </div>
+        </nav>
+
+    <div class="carousel">
+    <div class="carousel-wrapper">
+        <div class="carousel-slides" id="carouselSlides">
+            <!-- 第1页：原白精华水 -->
+            <div class="carousel-slide" style="position: relative; background: transparent;">
+                <!-- 背景产品图 -->
+                <div style="position: absolute; inset: 0; z-index: 1;">
+                    <img src="../../Screenshots/微信图片_20260519001959_472_646.png"
+                         alt="原白精华水" 
+                         style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+                </div>
+                <!-- 文字渐变背景层 -->
+                <div style="position: absolute; inset: 0; z-index: 1.5; background: linear-gradient(to top, rgba(220, 232, 217, 0.7) 0%, rgba(220, 232, 217, 0) 50%);"></div>
+                <!-- 前景文字 -->
+                <div class="slide-content" style="position: relative; z-index: 2;">
+                    <h2>原白精华水</h2>
+                    <p>根源抑黑，焕白提亮</p>
+                </div>
+            </div>
+            <!-- 第2页：原白精华乳 -->
+            <div class="carousel-slide" style="position: relative; background: transparent;">
+                <!-- 背景产品图 -->
+                <div style="position: absolute; inset: 0; z-index: 1;">
+                    <img src="../../Screenshots/微信图片_20260519001952_471_646.png"
+                         alt="原白精华乳背景" 
+                         style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+                </div>
+                <!-- 文字渐变背景层 -->
+                <div style="position: absolute; inset: 0; z-index: 1.5; background: linear-gradient(to top, rgba(220, 232, 217, 0.7) 0%, rgba(220, 232, 217, 0) 50%);"></div>
+                <!-- 前景文字 -->
+                <div class="slide-content" style="position: relative; z-index: 2;">
+                    <h2>原白精华乳</h2>
+                    <p>昼夜焕颜，精准御肤</p>
+                </div>
+            </div>
+            <!-- 第3页：咖啡因紧致修护眼霜 -->
+            <div class="carousel-slide" style="position: relative; background: transparent;">
+                <!-- 背景产品图 -->
+                <div style="position: absolute; inset: 0; z-index: 1;">
+                    <img src="../../Screenshots/微信图片_20260519001949_470_646.png" 
+                         alt="咖啡因紧致修护眼霜背景" 
+                         style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+                </div>
+                <!-- 文字渐变背景层 -->
+                <div style="position: absolute; inset: 0; z-index: 1.5; background: linear-gradient(to top, rgba(220, 232, 217, 0.7) 0%, rgba(220, 232, 217, 0) 50%);"></div>
+                <!-- 前景文字 -->
+                <div class="slide-content" style="position: relative; z-index: 2;">
+                    <h2>咖啡因紧致修护眼霜</h2>
+                    <p>针对黑眼圈，即刻焕亮</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-arrows carousel-prev" onclick="prevSlide()">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="carousel-arrows carousel-next" onclick="nextSlide()">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+            <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+            <div class="carousel-dot" onclick="goToSlide(1)"></div>
+            <div class="carousel-dot" onclick="goToSlide(2)"></div>
+        </div>
+    </div>
+    <p class="carousel-hint">你的皮肤，正在等待一次真正的「看见」</p>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <button class="btn btn-primary" onclick="startQuiz()" style="font-size: 18px; padding: 16px 40px;">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> 开始测试
+        </button>
+    </div>
+</div>
+
+        <!-- 装饰元素 -->
+        <div class="hero-decor decor-circle decor-circle-1"></div>
+        <div class="hero-decor decor-circle decor-circle-2"></div>
+        <div class="hero-decor decor-circle decor-circle-3"></div>
+    </section>
+
+    <!-- 版面2-7：问卷页面 -->
+    <section id="quiz" class="quiz-section">
+        <div class="quiz-container">
+            <div class="quiz-progress" id="quizProgress">
+                <div class="quiz-progress-dot active"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+            </div>
+
+            <!-- 问题1 -->
+            <div class="quiz-question" id="question1">
+                <h2>你的生活状态？</h2>
+                <p>选择最符合你日常状态的选项</p>
+            </div>
+
+            <div class="quiz-options" id="options1">
+                <div class="quiz-option" onclick="selectOption(1, 'A')">
+                    <div class="quiz-option-icon">🎓</div>
+                    <div class="quiz-option-content">
+                        <h4>学生党，追求性价比</h4>
+                        <p>年轻就是资本，但也要打好底子</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(1, 'B')">
+                    <div class="quiz-option-icon">💼</div>
+                    <div class="quiz-option-content">
+                        <h4>职场新人，熬夜加班</h4>
+                        <p>你的眼周需要一杯"加浓冰美式"</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(1, 'C')">
+                    <div class="quiz-option-icon">💄</div>
+                    <div class="quiz-option-content">
+                        <h4>轻熟龄，抗老预备</h4>
+                        <p>提前抗老，是对未来的投资</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(1, 'D')">
+                    <div class="quiz-option-icon">🌰</div>
+                    <div class="quiz-option-content">
+                        <h4>熟龄肌，专注紧致</h4>
+                        <p>紧致轮廓，慢养岁月</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-realtime" id="realtime1">
+                <i class="fa-solid fa-lightbulb"></i> <span id="realtimeText1">请选择你的生活状态</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz2" class="quiz-section">
+        <div class="quiz-container">
+            <div class="quiz-progress">
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot active"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2>你的肤质？</h2>
+                <p>了解你的皮肤基础属性</p>
+            </div>
+
+            <div class="quiz-options">
+                <div class="quiz-option" onclick="selectOption(2, '干性')">
+                    <div class="quiz-option-icon">💧</div>
+                    <div class="quiz-option-content">
+                        <h4>干性肌肤</h4>
+                        <p>需要加强保湿滋润</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(2, '油性')">
+                    <div class="quiz-option-icon">🛢️</div>
+                    <div class="quiz-option-content">
+                        <h4>油性肌肤</h4>
+                        <p>需要控油补水</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(2, '混合性')">
+                    <div class="quiz-option-icon">⚖️</div>
+                    <div class="quiz-option-content">
+                        <h4>混合性肌肤</h4>
+                        <p>T区油U区干，分区护理</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(2, '敏感性')">
+                    <div class="quiz-option-icon">🌊</div>
+                    <div class="quiz-option-content">
+                        <h4>敏感性肌肤</h4>
+                        <p>需要温和修护</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-realtime" id="realtime2">
+                <i class="fa-solid fa-lightbulb"></i> <span id="realtimeText2">选择你的肤质类型</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz3" class="quiz-section">
+        <div class="quiz-container">
+            <div class="quiz-progress">
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot active"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2>眼下最困扰你的问题？</h2>
+                <p>选择你最想改善的眼周问题</p>
+            </div>
+
+            <div class="quiz-options">
+                <div class="quiz-option" onclick="selectOption(3, '黑眼圈')">
+                    <div class="quiz-option-icon">🐼</div>
+                    <div class="quiz-option-content">
+                        <h4>黑眼圈</h4>
+                        <p>熊猫眼别怕，我们有咖啡因眼霜</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(3, '干纹')">
+                    <div class="quiz-option-icon">🐟</div>
+                    <div class="quiz-option-content">
+                        <h4>干纹/细纹</h4>
+                        <p>抚平岁月痕迹</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(3, '眼袋')">
+                    <div class="quiz-option-icon">📉</div>
+                    <div class="quiz-option-content">
+                        <h4>浮肿/眼袋</h4>
+                        <p>紧致眼周轮廓</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(3, '预防')">
+                    <div class="quiz-option-icon">🛡️</div>
+                    <div class="quiz-option-content">
+                        <h4>无明显问题，想预防</h4>
+                        <p>预防是最好的保养</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-realtime" id="realtime3">
+                <i class="fa-solid fa-lightbulb"></i> <span id="realtimeText3">选A→熊猫眼克星来了</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz4" class="quiz-section">
+        <div class="quiz-container">
+            <div class="quiz-progress">
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot active"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2>最想改善的面部区域？</h2>
+                <p>告诉我们你最关注的部位</p>
+            </div>
+
+            <div class="quiz-options">
+                <div class="quiz-option" onclick="selectOption(4, '肤色')">
+                    <div class="quiz-option-icon">🎨</div>
+                    <div class="quiz-option-content">
+                        <h4>整体肤色暗沉、色斑</h4>
+                        <p>原白精华水乳套组适合你</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(4, '眼周')">
+                    <div class="quiz-option-icon">👁️</div>
+                    <div class="quiz-option-content">
+                        <h4>眼周问题</h4>
+                        <p>咖啡因眼霜来帮忙</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(4, '泛红')">
+                    <div class="quiz-option-icon">🔴</div>
+                    <div class="quiz-option-content">
+                        <h4>脸颊泛红/痘印</h4>
+                        <p>修护精华淡化痕迹</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(4, '轮廓')">
+                    <div class="quiz-option-icon">📐</div>
+                    <div class="quiz-option-content">
+                        <h4>下颌线松弛</h4>
+                        <p>A醇晚霜紧致轮廓</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-realtime" id="realtime4">
+                <i class="fa-solid fa-lightbulb"></i> <span id="realtimeText4">针对性护理更有效</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz5" class="quiz-section">
+        <div class="quiz-container">
+            <div class="quiz-progress">
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot active"></div>
+                <div class="quiz-progress-dot"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2>你对成分的态度？</h2>
+                <p>选择你最看重的护肤理念</p>
+            </div>
+
+            <div class="quiz-options">
+                <div class="quiz-option" onclick="selectOption(5, '高浓度')">
+                    <div class="quiz-option-icon">🧪</div>
+                    <div class="quiz-option-content">
+                        <h4>成分党，追求高浓度</h4>
+                        <p>浓度与温和，我们找到平衡</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(5, '温和')">
+                    <div class="quiz-option-icon">🍃</div>
+                    <div class="quiz-option-content">
+                        <h4>温和派，看重舒缓修护</h4>
+                        <p>肌肤需要温柔呵护</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(5, '权威')">
+                    <div class="quiz-option-icon">📜</div>
+                    <div class="quiz-option-content">
+                        <h4>相信权威实测和SGS数据</h4>
+                        <p>数据说话，真功效看得见</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(5, '感官')">
+                    <div class="quiz-option-icon">🌸</div>
+                    <div class="quiz-option-content">
+                        <h4>好闻好用就行</h4>
+                        <p>愉悦护肤，享受过程</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-realtime" id="realtime5">
+                <i class="fa-solid fa-lightbulb"></i> <span id="realtimeText5">SGS认证，功效有据可依</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz6" class="quiz-section">
+        <div class="quiz-container">
+            <div class="quiz-progress">
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot completed"></div>
+                <div class="quiz-progress-dot active"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h2>护肤质地偏好？</h2>
+                <p>选择你最喜欢的护肤品质感</p>
+            </div>
+
+            <div class="quiz-options">
+                <div class="quiz-option" onclick="selectOption(6, '清爽')">
+                    <div class="quiz-option-icon">💧</div>
+                    <div class="quiz-option-content">
+                        <h4>清爽水露</h4>
+                        <p>一抹化水，轻盈不黏腻</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(6, '滋润')">
+                    <div class="quiz-option-icon">🥛</div>
+                    <div class="quiz-option-content">
+                        <h4>滋润乳液</h4>
+                        <p>润而不腻，持久保湿</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(6, '凝霜')">
+                    <div class="quiz-option-icon">☕</div>
+                    <div class="quiz-option-content">
+                        <h4>轻盈凝霜/慕斯</h4>
+                        <p>绵密质地，触肤即融</p>
+                    </div>
+                </div>
+                <div class="quiz-option" onclick="selectOption(6, '哑光')">
+                    <div class="quiz-option-icon">📄</div>
+                    <div class="quiz-option-content">
+                        <h4>不喜欢油腻，要哑光</h4>
+                        <p>清爽哑光，持久控油</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-realtime" id="realtime6">
+                <i class="fa-solid fa-lightbulb"></i> <span id="realtimeText6">根据你的偏好推荐最合适的质地</span>
+            </div>
+
+            <div class="quiz-nav">
+                <button class="btn btn-primary" onclick="showResult()" style="margin-top: 40px;">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> 生成我的「看见」报告
+                </button>
+            </div>
+        </div>
+    </section>
+<!-- 版面8：结果页 -->
+<section id="result" class="section">
+    <div class="result-container">
+        <div class="result-header">
+            <h2>你的专属「看见」报告</h2>
+            <p>基于你的回答，我们为你找到了最适合的产品组合</p>
+        </div>
+
+        <div class="result-layout">
+            <!-- 左侧个人信息 -->
+            <div class="result-profile">
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="profile-tags">
+                    <span class="profile-tag">学生党</span>
+                    <span class="profile-tag">敏感性肌</span>
+                    <span class="profile-tag">眼袋</span>
+                    <span class="profile-tag">眼周问题</span>
+                </div>
+            </div>
+
+            <!-- 右侧产品卡片 -->
+            <div class="result-products">
+                <!-- 产品1：原白精华水乳套组 -->
+                <div class="result-product-card">
+                    <div class="result-product-img" style="padding: 0; display: flex; align-items: center; justify-content: center; background: #f0f4f8;">
+                        <img src="../../Screenshots/微信图片_20260515102345_252_10.jpg"
+                             alt="原白精华水乳套组" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    </div>
+                    <h3 class="result-product-name">原白精华水乳套组</h3>
+                    <p class="result-product-desc">根源抑黑，焕白提亮</p>
+                    <div class="result-product-highlight">
+                        SGS实测96.9%用户认可，抑制黑色素50.69%
+                    </div>
+                    <button class="btn btn-primary mt-4" style="width: 100%;" onclick="goToProduct1()">查看详情</button>
+                </div>
+
+                <!-- 产品2：咖啡因紧致眼霜 -->
+                <div class="result-product-card">
+                    <div class="result-product-img" style="padding: 0; display: flex; align-items: center; justify-content: center; background: #f0f4f8;">
+                        <img src="../../Screenshots/微信图片_20260515103227_254_10.jpg"
+                             alt="咖啡因紧致眼霜" 
+                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    </div>
+                    <h3 class="result-product-name">咖啡因紧致眼霜</h3>
+                    <p class="result-product-desc">针对血管型黑眼圈</p>
+                    <div class="result-product-highlight">
+                        即刻焕亮+36.43%，淡纹-45.90%
+                    </div>
+                    <button class="btn btn-primary mt-4" style="width: 100%;" onclick="goToProduct2()">查看详情</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 按钮区域 -->
+        <div class="result-actions">
+            <button class="btn btn-secondary" onclick="goToQuiz()">重新测试</button>
+            <button class="btn btn-primary" onclick="showPromotion()">查看组合优惠</button>
+        </div>
+    </div>
+</section>
+
+    <!-- 海报模态框 -->
+    <div class="poster-modal" id="posterModal">
+        <div class="poster-content">
+            <span class="poster-close" onclick="closePoster()">&times;</span>
+            <h3>分享你的测试结果</h3>
+            <div class="poster-preview">
+                <div style="font-size: 48px; margin-bottom: 20px;">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h4 style="font-family: 'Noto Serif SC', serif; margin-bottom: 15px;">我的专属「看见」报告</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+                    熬夜加班族 · 混合肌<br>
+                    眼周暗沉 + 肤色不均
+                </p>
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+                    <span style="padding: 5px 10px; background: var(--brand-green); border-radius: 10px; font-size: 12px;">原白水乳</span>
+                    <span style="padding: 5px 10px; background: var(--brand-green); border-radius: 10px; font-size: 12px;">咖啡因眼霜</span>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="alert('长按图片保存到本地（设计演示）')">
+                长按保存图片
+            </button>
+        </div>
+    </div>
+
+    <!-- 版面9：原白精华水乳套组 -->
+    <section id="product1" class="product-detail-section">
+        <div class="container">
+            <div class="product-detail-header">
+                <h2>看见·焕白之光</h2>
+                <p>原白精华水乳套组 | 根源抑黑，焕白提亮</p>
+            </div>
+
+            <div class="product-detail-layout">
+                <div class="product-showcase">
+                    <div class="product-main-img" style="padding:0;">
+    <img src="../../Screenshots/微信图片_20260515104359_256_10.jpg"
+         alt="原白精华水乳套组" 
+         style="width:100%;height:100%;object-fit:cover;border-radius:20px;">
+</div>
+                    <div class="magnifier-focus"></div>
+                </div>
+
+                <div class="product-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>α-熊果苷 高纯≥97%</h4>
+                            <p>抑制黑色素50.69%，从源头减少色素沉着</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item" onmouseenter="showPopup()" onmouseleave="hidePopup()">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-circle-nodes"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>ACTCOCOON包裹技术</h4>
+                            <p>看得见的焕白微粒，缓慢释放活性成分</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>美白祛斑双特证</h4>
+                            <p>国家药监局认证 + SGS人体实测</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-feather"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>清透质地</h4>
+                            <p>一抹吸收，不黏腻不闷痘</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bar-chart" style="margin-top: 50px;">
+                <h3 style="text-align: center; margin-bottom: 30px; font-family: 'Noto Serif SC', serif;">功效数据</h3>
+               <div class="bar-chart">
+    <div class="bar-chart-item">
+        <div class="bar-chart-label">
+            <span>全皮层黑素颗粒减少</span>
+            <span>40.93%</span>
+        </div>
+        <div class="bar-chart-bar">
+            <div class="bar-chart-fill" style="width: 40.93%;"></div>
+        </div>
+    </div>
+    <div class="bar-chart-item">
+        <div class="bar-chart-label">
+            <span>黄褐顽斑减少</span>
+            <span>23.22%</span>
+        </div>
+        <div class="bar-chart-bar">
+            <div class="bar-chart-fill" style="width: 23.22%;"></div>
+        </div>
+    </div>
+    <div class="bar-chart-item">
+        <div class="bar-chart-label">
+            <span>皮肤光泽度提升</span>
+            <span>92.28%</span>
+        </div>
+        <div class="bar-chart-bar">
+            <div class="bar-chart-fill" style="width: 92.28%;"></div>
+        </div>
+    </div>
+    <div class="bar-chart-item">
+        <div class="bar-chart-label">
+            <span>暗黄减少</span>
+            <span>7.57%</span>
+        </div>
+        <div class="bar-chart-bar">
+            <div class="bar-chart-fill" style="width: 7.57%;"></div>
+        </div>
+    </div>
+</div>
+
+            <div class="hover-popup" id="cocoonPopup">
+                <div class="popup-title">ACTCOCOON® 蚕蛹包裹技术</div>
+                <div class="cocoon-animation">
+                    <div class="cocoon-bubble"></div>
+                    <div class="cocoon-bubble"></div>
+                    <div class="cocoon-bubble"></div>
+                </div>
+                <div class="popup-content">
+                    将活性成分包裹在蚕蛹般的微粒中，缓慢释放，确保成分活性的同时减少刺激。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 版面10：咖啡因紧致眼霜 -->
+    <section id="product2" class="product-detail-section">
+        <div class="container">
+            <div class="product-detail-header">
+                <h2>看见·眼周焕亮</h2>
+
+                <p>咖啡因紧致眼霜 | 针对黑眼圈，即刻焕亮</p>
+            </div>
+
+            <div class="product-detail-layout">
+                <div class="product-showcase">
+                   <div class="product-main-img" style="padding:0;">
+    <img src="../../Screenshots/微信图片_20260515105344_258_10.jpg" 
+         alt="咖啡因紧致眼霜" 
+         style="width:100%;height:100%;object-fit:cover;border-radius:20px;">
+</div>
+                </div>
+
+                <div class="product-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>小粒咖啡发酵滤液替代水</h4>
+                            <p>DPPH清除率92%，抗氧化力惊人</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-vial"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>三重活性成分</h4>
+                            <p>维生素K2+咖啡因（血管型）<br>麦角硫因（色素型）<br>胶原肽（结构型）</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>SGS通宵测试</h4>
+                            <p>即刻焕亮+36.43%<br>皱纹数量-45.90%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="eye-slider-section">
+                <h3 style="text-align: center; margin-bottom: 30px; font-family: 'Noto Serif SC', serif;">眼周调色盘</h3>
+                <div class="slider-container">
+                    <div class="eye-preview" id="eyePreview">
+                        <i class="fa-solid fa-face-tired"></i>
+                    </div>
+                    <div class="slider-wrapper">
+                        <div class="slider-label">
+                            <span>暗沉</span>
+                            <span>焕亮</span>
+                        </div>
+                        <input type="range" class="eye-slider" id="eyeSlider" min="0" max="100" value="30" oninput="updateEyePreview()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 版面11：品牌理念 -->
+    <section id="brand-story">
+        <div class="container">
+            <div class="story-header">
+                <h2>「看见」背后，是「慢一点」</h2>
+                <p>我们慢下来，是为了让你更快看见改变。六年科研路，每一步都算数。</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-title">品牌创立</div>
+                    <div class="timeline-desc">HBN诞生，专注功效护肤赛道，坚持"真功效"理念</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-title">首个SGS实测产品上市</div>
+                    <div class="timeline-desc">原白精华水乳套组，成为国货美白标杆</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-title">牵头团标立项</div>
+                    <div class="timeline-desc">主导制定行业功效检测标准，推动行业规范化</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-title">6000+人次人体实测</div>
+                    <div class="timeline-desc">超50篇SCI论文，国货功效护肤第一品牌</div>
+                </div>
+            </div>
+
+            <p class="story-quote">"我们慢下来，是为了让你更快看见改变。"</p>
+        </div>
+    </section>
+
+    <!-- 版面12：产品组合优惠 -->
+    <section id="promotion">
+        <div class="promotion-container">
+            <div class="promotion-card">
+                <h3 class="promotion-title">「看见」专属套组</h3>
+                
+                <div class="promotion-products">
+                    <div class="promotion-product">
+                       <div class="promotion-product-icon" style="padding:0;">
+    <img src="../../Screenshots/微信图片_20260518153240_157_6.png" 
+         alt="原白水乳" 
+         style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+</div>
+                        <div class="promotion-product-name">原白水乳</div>
+                    </div>
+                    <div class="promotion-plus">+</div>
+                    <div class="promotion-product">
+                       <div class="promotion-product-icon" style="padding:0;">
+    <img src="../../Screenshots/微信图片_20260518152836_156_6.png"
+         alt="咖啡因眼霜" 
+         style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+</div>
+                        <div class="promotion-product-name">咖啡因眼霜</div>
+                    </div>
+                </div>
+
+                <div class="promotion-price">
+                    <span class="price-original">¥658</span>
+                    <span class="price-sale">¥529</span>
+                </div>
+
+                <div class="promotion-gift">
+                    <i class="fa-solid fa-gift"></i>
+                    赠半套正装水乳+一只洁面
+                </div>
+
+               <a href="https://detail.tmall.com/item.htm?abbucket=2&id=672730503330&loginBonus=1&mi_id=00004AXYW7HrJhkqddkSRgvw0XU8TitbFtZFShirsd_ohYQ&ns=1&priceTId=2147818517790867025807172e1023&skuId=6246415246910&spm=a21n57.sem.item.49.32c515a8em9Uil&utparam=%7B%22aplus_abtest%22%3A%22bb632f3d87f2525e2a199ee6bcd4c768%22%7D&xxc=taobaoSearch" 
+   target="_blank" 
+   class="btn btn-primary" 
+   style="font-size: 18px; padding: 16px 40px; text-decoration: none;">
+    立即加购，看见原生光
+</a >
+
+                <p class="promotion-note">
+                    HBN官方商城 | 大广赛参赛作品，仅设计展示，不真实销售
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 版面13：页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于HBN</h4>
+                    <p>功效护肤品牌</p>
+                    <p>坚持"真功效"理念</p>
+                    <p>让每一份功效都经得起验证</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <a href="#">产品系列</a><br>
+                    <a href="#">科研中心</a><br>
+                    <a href="#">真实测评</a><br>
+                    <a href="#">会员专区</a>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p>客服热线：400-888-8888</p>
+                    <p>邮箱：service@hbnchina.com</p>
+                    <div class="competition-badge">
+                        大广赛参赛作品 | 仅展示不销售
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 HBN 功效护肤品牌 | 大广赛UI设计展示作品</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+       let currentSlide = 0;
+let currentQuestion = 1;
+let quizAnswers = {};
+const totalQuestions = 6;
+
+const realtimeMessages = {
+    1: {
+        'A': '年轻就是资本，但也要打好底子',
+        'B': '你的眼周需要一杯"加浓冰美式"',
+        'C': '提前抗老，是对未来的投资',
+        'D': '紧致轮廓，慢养岁月'
+    },
+    2: {
+        '干性': '干皮需要加强保湿滋润',
+        '油性': '油皮需要控油补水',
+        '混合性': '混合肌分区护理更有效',
+        '敏感性': '敏感肌需要温和修护'
+    },
+    3: {
+        '黑眼圈': '熊猫眼别怕，我们有咖啡因眼霜',
+        '干纹': '抚平岁月痕迹，从现在开始',
+        '眼袋': '紧致眼周轮廓，重拾年轻眼神',
+        '预防': '预防是最好的保养'
+    },
+    4: {
+        '肤色': '原白精华水乳套组适合你',
+        '眼周': '咖啡因眼霜来帮忙',
+        '泛红': '修护精华淡化痕迹',
+        '轮廓': 'A醇晚霜紧致轮廓'
+    },
+    5: {
+        '高浓度': '浓度与温和，我们找到平衡',
+        '温和': '肌肤需要温柔呵护',
+        '权威': '数据说话，真功效看得见',
+        '感官': '愉悦护肤，享受过程'
+    },
+    6: {
+        '清爽': '清爽质地适合油皮/混合皮',
+        '滋润': '滋润质地适合干皮',
+        '凝霜': '绵密质地触肤即融',
+        '哑光': '哑光效果持久控油'
+    }
+};
+
+function updateCarousel() {
+    const slides = document.getElementById('carouselSlides');
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    const dots = document.querySelectorAll('.carousel-dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % 3;
+    updateCarousel();
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + 3) % 3;
+    updateCarousel();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+}
+
+function startQuiz() {
+    document.getElementById('quiz').classList.add('active');
+    document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('progressBar').classList.add('active');
+}
+
+let autoSlide = setInterval(nextSlide, 4000);
+
+function selectOption(questionNum, answer) {
+    quizAnswers[questionNum] = answer;
+    const options = document.querySelectorAll(`#options${questionNum} .quiz-option`);
+    options.forEach(opt => opt.classList.remove('selected'));
+    event.currentTarget.classList.add('selected');
+
+    const realtime = document.getElementById(`realtime${questionNum}`);
+    const realtimeText = document.getElementById(`realtimeText${questionNum}`);
+    if (realtimeMessages[questionNum] && realtimeMessages[questionNum][answer]) {
+        realtimeText.textContent = realtimeMessages[questionNum][answer];
+    }
+    realtime.classList.add('visible');
+
+    if (questionNum < totalQuestions) {
+        setTimeout(() => {
+            showQuestion(questionNum + 1);
+        }, 800);
+    }
+}
+
+function showQuestion(num) {
+    document.querySelectorAll('.quiz-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    const quizSection = document.getElementById(`quiz${num === 1 ? '' : num}`);
+    if (quizSection) {
+        quizSection.classList.add('active');
+        quizSection.classList.add('fade-in');
+    }
+    currentQuestion = num;
+    updateProgressBar();
+    document.getElementById('progressBar').classList.add('active');
+}
+
+function updateProgressBar() {
+    const progress = (currentQuestion / totalQuestions) * 100;
+    document.getElementById('progressFill').style.width = `${progress}%`;
+}
+
+function generateProfileTags() {
+    const tags = [];
+    if (quizAnswers[1]) {
+        const lifeMap = {
+            'A': '学生党',
+            'B': '熬夜加班族',
+            'C': '轻熟龄抗老',
+            'D': '熟龄紧致'
+        };
+        tags.push(lifeMap[quizAnswers[1]]);
+    }
+    if (quizAnswers[2]) {
+        tags.push(quizAnswers[2] + '肌');
+    }
+    if (quizAnswers[3] && quizAnswers[3] !== '预防') {
+        tags.push(quizAnswers[3]);
+    } else if (quizAnswers[3] === '预防') {
+        tags.push('预防优先');
+    }
+    if (quizAnswers[4]) {
+        const areaMap = {
+            '肤色': '肤色不均',
+            '眼周': '眼周问题',
+            '泛红': '泛红痘印',
+            '轮廓': '轮廓松弛'
+        };
+        tags.push(areaMap[quizAnswers[4]]);
+    }
+    return tags;
+}
+
+function showResult() {
+    document.querySelectorAll('.quiz-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById('result').classList.add('active');
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    const tags = generateProfileTags();
+    const tagsContainer = document.getElementById('profileTags');
+    tagsContainer.innerHTML = tags.map(tag => `<span class="profile-tag">${tag}</span>`).join('');
+    document.getElementById('progressBar').classList.remove('active');
+}
+
+// 重新测试：跳回问卷第1题
+function goToQuiz() {
+    // 隐藏结果页
+    document.getElementById('result').classList.remove('active');
+    // 重置答题
+    quizAnswers = {};
+    currentQuestion = 1;
+    // 重置选中
+    document.querySelectorAll('.quiz-option').forEach(opt => {
+        opt.classList.remove('selected');
+    });
+    document.querySelectorAll('.quiz-realtime').forEach(rt => {
+        rt.classList.remove('visible');
+    });
+    // 显示问卷第一页
+    document.getElementById('quiz').classList.add('active');
+    document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('progressBar').classList.add('active');
+    updateProgressBar();
+}
+
+// 查看组合优惠：跳转到#promotion
+function showPromotion() {
+    // 隐藏结果页
+    document.getElementById('result').classList.remove('active');
+    // 显示优惠页
+    document.getElementById('promotion').classList.add('active');
+    document.getElementById('promotion').scrollIntoView({ behavior: 'smooth' });
+}
+
+// 跳转到原白精华水乳套组详情页（版面9）
+function goToProduct1() {
+    // 隐藏当前结果页
+    document.getElementById('result').classList.remove('active');
+    // 显示版面9
+    document.getElementById('product1').classList.add('active');
+    // 平滑滚动到顶部
+    document.getElementById('product1').scrollIntoView({ behavior: 'smooth' });
+}
+
+// 跳转到咖啡因紧致眼霜详情页（版面10）
+function goToProduct2() {
+    // 隐藏当前结果页
+    document.getElementById('result').classList.remove('active');
+    // 显示版面10
+    document.getElementById('product2').classList.add('active');
+    // 平滑滚动到顶部
+    document.getElementById('product2').scrollIntoView({ behavior: 'smooth' });
+}
+
+function showPoster() {
+    document.getElementById('posterModal').classList.add('active');
+}
+
+function closePoster() {
+    document.getElementById('posterModal').classList.remove('active');
+}
+
+function showPopup() {
+    document.getElementById('cocoonPopup').classList.add('active');
+}
+
+function hidePopup() {
+    document.getElementById('cocoonPopup').classList.remove('active');
+}
+
+function updateEyePreview() {
+    const slider = document.getElementById('eyeSlider');
+    const preview = document.getElementById('eyePreview');
+    const value = slider.value;
+    if (value < 30) {
+        preview.innerHTML = '<i class="fa-solid fa-face-tired"></i>';
+        preview.style.background = '#e0d0d0';
+    } else if (value < 60) {
+        preview.innerHTML = '<i class="fa-solid fa-face-meh"></i>';
+        preview.style.background = '#e8e0d8';
+    } else {
+        preview.innerHTML = '<i class="fa-solid fa-face-smile"></i>';
+        preview.style.background = '#f8f0e8';
+    }
+}
+
+function scrollToProduct1() {
+    document.getElementById('product1').classList.add('active');
+    document.getElementById('product1').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('brand-story').classList.add('active');
+    document.getElementById('promotion').classList.add('active');
+}
+
+function scrollToProduct2() {
+    document.getElementById('product2').classList.add('active');
+    document.getElementById('product2').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('brand-story').classList.add('active');
+    document.getElementById('promotion').classList.add('active');
+}
+
+function addToCart() {
+    alert('已加入购物车（设计演示）');
+}
+
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('poster-modal')) {
+        closePoster();
+    }
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (this.id === 'nav-quiz') {
+            startQuiz();
+            return;
+        }
+        if (this.id === 'nav-product-show') {
+            document.getElementById('product1').classList.add('active');
+            document.getElementById('product2').classList.add('active');
+            document.getElementById('product1').scrollIntoView({ behavior: 'smooth' });
+            return;
+        }
+        const target = this.getAttribute('href');
+        if (target === '#products') {
+            document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+        } else if (target === '#brand-story') {
+            document.getElementById('brand-story').classList.add('active');
+            document.getElementById('brand-story').scrollIntoView({ behavior: 'smooth' });
+        } else if (target === '#promotion') {
+            document.getElementById('promotion').classList.add('active');
+            document.getElementById('promotion').scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+    </script>
+</body>
+</html>
